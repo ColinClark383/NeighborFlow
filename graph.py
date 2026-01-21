@@ -79,8 +79,12 @@ class Graph:
             if len(self.recentQueue) > self.queueSize:
                 self.recentQueue.popleft()
             nextNode = None
+            avalibleNodes = list(self.curNode.neighbors)
+            distances = []
+            for a in avalibleNodes:
+                distances.append(1/(self.squared_euclidean(self.curNode, a)))
             while nextNode == None:
-                nextNode = random.choice(list(self.curNode.neighbors))
+                nextNode = random.choices(avalibleNodes, weights=distances, k=1)[0]
                 if nextNode in self.recentQueue:
                     nextNode = None
             self.curNode = nextNode

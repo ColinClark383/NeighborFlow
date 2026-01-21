@@ -8,5 +8,5 @@ music/boo.mp3
 1
 boom
 music/boom.mp3
-9
-9
+70
+70
